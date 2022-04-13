@@ -17,11 +17,14 @@ function brew_update_packages --description "Updates installed homebrew packages
     # update casks
     echo "check outdated casks..."
     set -l OUTDATED $(brew outdated --cask --greedy --verbose | sed -E '/latest/d' | awk '{print $1}' ORS=' ' | tr -d '\n')
+    set OUTDATED (string trim $OUTDATED)
     if test -n "$OUTDATED"
         # there are outdated casks
         echo "outdated casks: $OUTDATED"
         echo "upgrade outdated casks..."
         brew reinstall --cask (string split " " $OUTDATED)
+    else
+        echo "No casks to upgrade"
     end
 
     # clean-up
