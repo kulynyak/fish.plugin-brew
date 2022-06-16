@@ -15,7 +15,7 @@ Just in case you are using `HOMEBREW_GITHUB_API_TOKEN` — add the following cod
 to your `config.fish`:
 
 ```fish
-set -Ux HOMEBREW_GITHUB_API_TOKEN "your homebrew github api token"
+set -gx HOMEBREW_GITHUB_API_TOKEN "your homebrew github api token"
 ```
 
 Execute `man brew` to read about `HOMEBREW_GITHUB_API_TOKEN`.

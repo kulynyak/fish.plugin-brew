@@ -5,11 +5,11 @@ if not status is-interactive && test "$CI" != true
 end
 
 # setup variables
-set -Ux HOMEBREW_CASK_OPTS --no-quarantine
-set -Ux HOMEBREW_NO_ENV_HINTS 1
-set BREW_GITHUB_API_TOKEN_PATH "$HOME/Dropbox/sync.dotfiles/brew.github.token.txt"
+set -gx HOMEBREW_CASK_OPTS --no-quarantine
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -l BREW_GITHUB_API_TOKEN_PATH "$HOME/Dropbox/sync.dotfiles/brew.github.token.txt"
 if test -f $BREW_GITHUB_API_TOKEN_PATH
-    read -Ux HOMEBREW_GITHUB_API_TOKEN <$BREW_GITHUB_API_TOKEN_PATH
+    read -gx HOMEBREW_GITHUB_API_TOKEN <$BREW_GITHUB_API_TOKEN_PATH
 end
 set -e BREW_GITHUB_API_TOKEN_PATH
 
